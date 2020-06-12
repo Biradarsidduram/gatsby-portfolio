@@ -1,0 +1,11 @@
+$red:#EF6628;
+@font-face{
+    font-family:"archeus";
+    src: url('../assets/fonts/horizon-type-acherusgrotesque-regular.otf');
+}
+
+body{
+    background-color: $red;
+    margin:0px;
+    padding:0px;
+}
