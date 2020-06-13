@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-import NavigatonCss from './navigation.module.scss'
+import NavigatonCss from "./navigation.module.scss"
 
 const Navigation = () => {
   const data = useStaticQuery(graphql`
@@ -9,7 +9,7 @@ const Navigation = () => {
       site {
         siteMetadata {
           description
-          author{
+          author {
             firstName
             lastName
           }
@@ -19,16 +19,23 @@ const Navigation = () => {
   `)
   return (
     <div className={NavigatonCss.navigation_container}>
-      <div>
-        <Link to="/" className={NavigatonCss.logo}>{data.site.siteMetadata.author.firstName}<span>{data.site.siteMetadata.author.lastName}</span></Link>
+      <div className={NavigatonCss.logo_container}>
+        <Link to="/" className={NavigatonCss.logo}>
+          {data.site.siteMetadata.author.firstName}
+          <span>{data.site.siteMetadata.author.lastName}</span>
+        </Link>
       </div>
       <div
         component="nav"
         variant="dense"
         className={NavigatonCss.main_content}
       >
-        <Link to="/">Home</Link>
-        <Link to="/blog">Blog</Link>
+        <Link to="/" activeClassName="active">
+          Home
+        </Link>
+        <Link to="/blog" activeClassName="active">
+          Blog
+        </Link>
       </div>
     </div>
   )

@@ -1,38 +1,39 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Navigation from "../components/Navigation"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import indexCss from "../css/index.module.scss"
 
-export default function Home() {
-  const data = useStaticQuery(graphql`
-    query {
-      allSanityBlog {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-            description
-            created
-            name
-            image {
-              asset {
-                id
-              }
-            }
-          }
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        description
+        author {
+          firstName
+          lastName
         }
       }
     }
-  `)
-  console.log(data)
+  }
+`
+
+function Home({ data }) {
   return (
     <div>
       <Layout>
         <Navigation />
-         
+        <div className={indexCss.container}>
+          <div className={indexCss.about_me}>
+            <p className={indexCss.about_me_header}>About me</p>
+            <div className={indexCss.about_me_description}>
+              {data.site.siteMetadata.description}
+            </div>
+          </div>
+        </div>
       </Layout>
     </div>
   )
 }
+
+export default Home

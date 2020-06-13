@@ -1,11 +1,42 @@
 $red:#EF6628;
 @font-face{
+    font-family: "medium-content";
+    src: url("../assets/fonts/fell-500-normal.woff");
+}
+@font-face{
     font-family:"archeus";
     src: url('../assets/fonts/horizon-type-acherusgrotesque-regular.otf');
+}
+
+@font-face{
+    font-family: "riffic-bold";
+    src:url('../assets/fonts/riffic-bold-webfont.woff2')
+}
+
+@font-face{
+    font-family: "montserrat-medium";
+    src:url('../assets/fonts/Montserrat-Medium.ttf')
 }
 
 body{
     background-color: $red;
     margin:0px;
     padding:0px;
+    overflow-x: hidden;
+}
+
+html, body, #___gatsby {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+}
+
+div[tabindex] {
+    height: 100%;
+}
+a{
+    color:#000;
+    text-decoration: none;
 }

@@ -1,0 +1,19 @@
+.container{
+   position: relative;  
+  .about_me{
+    font-family: archeus;
+    position: absolute;
+    top:1%;
+    left: 30%;
+    transform: translate(-29%, 0);
+    font-size: 20px;
+    color:#fff;
+    &_description{
+        font-weight: bolder;
+        word-spacing: 3px;
+    }
+    &_header{
+        text-decoration: underline;
+    }
+  } 
+}
