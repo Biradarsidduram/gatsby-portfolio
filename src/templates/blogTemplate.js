@@ -1,10 +1,10 @@
 import React from "react"
-import { graphql,Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Navigation from "../components/Navigation"
-// import Img from 'gatsby-image';
 import BlogTemplateCss from "../css/blogTemplate.module.scss"
 import BackIcon from "../assets/icons/backIcon"
+import Img from "gatsby-image"
 
 export const query = graphql`
   query($slug: String!) {
@@ -15,6 +15,14 @@ export const query = graphql`
       image {
         asset {
           url
+          fluid {
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
         }
       }
     }
@@ -31,16 +39,19 @@ const BlogTemplate = ({ data }) => {
           Created on: <span>{data.sanityBlog.created}</span>
         </div>
         <div className={BlogTemplateCss.image_container}>
-          <img src={data.sanityBlog.image.asset.url} alt=""></img>
+          <Img
+            fluid={data.sanityBlog.image.asset.fluid}
+            alt={data.sanityBlog.name}
+          ></Img>
         </div>
         <div className={BlogTemplateCss.description}>
           {data.sanityBlog.description}
         </div>
-          <div className={BlogTemplateCss.back_container}>
-            <Link to="/blog">
-              <BackIcon className={BlogTemplateCss.back_icon} /> <span>Back</span>
-            </Link>
-          </div>
+        <div className={BlogTemplateCss.back_container}>
+          <Link to="/blog">
+            <BackIcon className={BlogTemplateCss.back_icon} /> <span>Back</span>
+          </Link>
+        </div>
       </div>
     </Layout>
   )

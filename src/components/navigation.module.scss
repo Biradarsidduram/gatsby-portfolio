@@ -21,7 +21,13 @@
         float: right;
         justify-content: space-around;
         align-items: center;
-        width:20%;
+        width: 150px;
+        margin-top:3px;
+        margin-right: 5%;
+        @media screen and (max-width:500px){
+            margin-right: 0;
+            width:120px;
+        } 
     }
     a{
         color: #fff;

@@ -1,13 +1,10 @@
 import React from "react"
-import Helmet from "react-helmet"
+import SEO from "../components/SEO"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Helmet>
-        <html lang="en"></html>
-        <title>Portfolio</title>
-      </Helmet>
+      <SEO />
       <div className="main-container">{children}</div>
     </>
   )
